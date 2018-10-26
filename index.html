@@ -1,9 +1,14 @@
-<h1>Hello!</h1>
 
 <!DOCTYPE html>
 <html>
 
 <head>
+<select id="bugs" name="bugs">
+  <option value="User">End User</option>
+  <option value="Manager">Manager</option>
+  <option value="Tester">Tester</option>
+  <option value="Developer">Developer</option>
+</select>
     <meta charset="utf-8">
     <title>Your first HTML form</title>
     
@@ -85,12 +90,12 @@ button {
 <label for="bugs">Type of Error</label>
 
 <select id="bugs" name="bugs">
-  <option value="Severe">Unknown</option>
-  <option value="volvo">Button won't click</option>
-  <option value="saab">Page won't load</option>
-  <option value="mercedes">Missing image</option>
-  <option value="audi">Page not found</option>
-  <option value="audi">Other</option>
+  <option value="unknown">Unknown</option>
+  <option value="buttonwontclick">Button won't click</option>
+  <option value="pagewontload">Page won't load</option>
+  <option value="missingimage">Missing image</option>
+  <option value="pagenotfound">Page not found</option>
+  <option value="other">Other</option>
 </select>        
 
 <label for="priority">Priority of Error</label>
@@ -107,7 +112,7 @@ button {
           <label for="mail">Link to Website:</label> <input type="email" id="mail" name="user_mail">
         </div>    </form>
 
-<button id="submit">
+<button type="button" style="margin-left:auto;margin-right:auto;display:block">
 Submit</button>
 
 </body>
