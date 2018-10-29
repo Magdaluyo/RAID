@@ -128,8 +128,9 @@ Submit</button>
 <form method = "get" action= "page2.html">
 	<button type = "submit" onclick = "myFunction()">Report Bug</button>
 </form> -->
+
 <center>
-<p id="demo">Current Bugs:</p>
+<!--<p id="demo">Current Bugs:</p>-->
 <button type = "button" onclick="newTicket()">Submit Form</button>
 </center>
 
@@ -366,7 +367,7 @@ else {
                 document.getElementById("printArchiveStatus1").innerHTML = "Current status: " + ticket1Archive.currentStatus;
             
             
-                document.getElementById("printArchiveTitle2").innerHTML = "<b>Ticket 2 Information:</b>";
+                document.getElementById("printArchiveTitle2").innerHTML = "<b>Ticket Archive 2 Information:</b>";
                 document.getElementById("printArchiveName2").innerHTML = "Reported by: " + ticket2Archive.name;
                 document.getElementById("printArchiveProblem2").innerHTML = "Problem: " + ticket2Archive.problem;
                 document.getElementById("printArchiveDescription2").innerHTML = "Description: " + ticket2Archive.description;
@@ -377,7 +378,7 @@ else {
                 document.getElementById("printArchiveTester2").innerHTML = "Current tester assigned: " + ticket2Archive.currentTester;
                 document.getElementById("printArchiveStatus2").innerHTML = "Current status: " + ticket2Archive.currentStatus;
             
-                document.getElementById("printArchiveTitle3").innerHTML = "<b>Ticket 3 Information:</b>";
+                document.getElementById("printArchiveTitle3").innerHTML = "<b>Ticket Archive 3 Information:</b>";
                 document.getElementById("printArchiveName3").innerHTML = "Reported by: " + ticket3Archive.name;
                 document.getElementById("printArchiveProblem3").innerHTML = "Problem: " + ticket3Archive.problem;
                 document.getElementById("printArchiveDescription3").innerHTML = "Description: " + ticket3Archive.description;
