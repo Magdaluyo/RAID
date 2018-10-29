@@ -136,7 +136,22 @@ function myFunction() {
 
 <p id="demo">Hello</p>
 <button type = "test" onclick = "myFunction()">Change sentence</button>
-<p id="demo"></p>
+
+<div id = "result"></div>
+<script>
+if (typeof(Storage) !== "undefined") {
+	localStorage.setItem("lastname", "Smith");
+	document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+}
+
+else {
+	document.getElementById("result").innerHTML = "does not support";
+}
+</script>
+
+
+
+
 
 <form method = "get" action = "index.html">
 	<button type = "return"> Return to Login Page</button>
