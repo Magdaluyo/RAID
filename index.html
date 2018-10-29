@@ -82,135 +82,6 @@ button {
 </head>
 
 <body>
-    <script>
-        var ticket1, ticket1Flag = 0;
-        var ticket2, ticket2Flag = 0;
-        var ticket3, ticket3Flag = 0;
-        var ticketID = 1;
-
-        function Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester) {
-            this.name = name;
-            this.problem = problem;
-            this.description = description;
-            this.errorType = errorType;
-            this.priority = priority;
-            this.linkToSite = linkToSite;
-            this.ticketID = ticketID;
-            this.currentDev = currentDev;
-            this.currentStatus = currentStatus;
-            this.currentTester = currentTester;
-        }
-
-        //var submit = document.getElementById("submit");
- 
-        //submit.onclick = 
-        function newTicket() {
-            
-            var description = document.getElementById("description").value,
-                name = document.getElementById("name").value,
-                problem = document.getElementById("problem").value,
-                errorType = document.getElementById("bugs").value,
-                priority = document.getElementById("priority").value,
-                linkToSite = document.getElementById("mail").value,
-                currentStatus = "Bug Verification",
-                currentDev = "Unassigned",
-                currentTester = "Unassigned";
-            if(ticket1Flag == 0) {
-                ticket1 = new Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester);
-                ticket1Flag = 1;
-            } else if(ticket2Flag == 0) {
-                ticket2 = new Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester);
-                ticket2Flag = 1;
-            } else if(ticket3Flag == 0) {
-                ticket3 = new Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester);
-                ticket3Flag = 1;
-            } else {
-                alert("Error, submit no more than three tickets for this demonstration");
-            }
-            
-            ticketID += 1;
-            printTickets();
-            
-            //return ticketList;
-            //document.getElementById("testing").innerHTML = myName;
-            //document.getElementById("testing").innerHTML = ticketList[0];
-        };
-        function printTickets() {
-            if(ticket1Flag === 1) {
-                document.getElementById("printTitle1").innerHTML = "<b>Ticket 1 Information:</b>";
-                document.getElementById("printName1").innerHTML = "Reported by: " + ticket1.name;
-                document.getElementById("printProblem1").innerHTML = "Problem: " + ticket1.problem;
-                document.getElementById("printDescription1").innerHTML = "Description: " + ticket1.description;
-                document.getElementById("printErrorType1").innerHTML = "Error Type: " + ticket1.errorType;
-                document.getElementById("printPriority1").innerHTML = "Priority: " + ticket1.priority;
-                document.getElementById("printLinkToSite1").innerHTML = "Link to site: " + ticket1.linkToSite;
-                document.getElementById("printDeveloper1").innerHTML = "Current developer assigned: " + ticket1.currentDev;
-                document.getElementById("printTester1").innerHTML = "Current tester assigned: " + ticket1.currentTester;
-            }
-            if(ticket2Flag === 1) {
-                document.getElementById("printTitle2").innerHTML = "<b>Ticket 2 Information:</b>";
-                document.getElementById("printName2").innerHTML = "Reported by: " + ticket2.name;
-                document.getElementById("printProblem2").innerHTML = "Problem: " + ticket2.problem;
-                document.getElementById("printDescription2").innerHTML = "Description: " + ticket2.description;
-                document.getElementById("printErrorType2").innerHTML =  "Error Type: " + ticket2.errorType;
-                document.getElementById("printPriority2").innerHTML = "Priority: " + ticket2.priority;
-                document.getElementById("printLinkToSite2").innerHTML = "Link to site: " + ticket2.linkToSite;
-                document.getElementById("printDeveloper2").innerHTML = "Current developer assigned: " + ticket2.currentDev;
-                document.getElementById("printTester2").innerHTML = "Current tester assigned: " + ticket2.currentTester;
-            }
-            if(ticket3Flag === 1) {
-                document.getElementById("printTitle3").innerHTML = "<b>Ticket 3 Information:</b>";
-                document.getElementById("printName3").innerHTML = "Reported by: " + ticket3.name;
-                document.getElementById("printProblem3").innerHTML = "Problem: " + ticket3.problem;
-                document.getElementById("printDescription3").innerHTML = "Description: " + ticket3.description;
-                document.getElementById("printErrorType3").innerHTML = "Error Type: " + ticket3.errorType;
-                document.getElementById("printPriority3").innerHTML = "Priority: " + ticket3.priority;
-                document.getElementById("printLinkToSite3").innerHTML = "Link to site: " + ticket3.linkToSite;
-                document.getElementById("printDeveloper3").innerHTML = "Current developer assigned: " + ticket3.currentDev;
-                document.getElementById("printTester3").innerHTML = "Current tester assigned: " + ticket3.currentTester;
-            }
-            
-            
-        }
-                                                
-
-        function updateTickets() {
-            var bugToEdit = document.getElementById("bugEdit").value,
-                newTester = document.getElementById("testerEdit").value,
-                newDev = document.getElementById("developerEdit").value;
-            
-            if(bugToEdit == "bug1") {
-                ticket1.currentTester = newTester;
-                ticket1.currentDev = newDev;
-                
-            } else if(bugToEdit == "bug2") {
-                ticket2.currentTester = newTester;
-                ticket2.currentDev = newDev;
-            } else if(bugToEdit == "bug3") {
-                ticket3.currentTester = newTester;
-                ticket3.currentDev = newDev;
-            }
-            printTickets();
-            
-        }
-        
-        function resolveTicket() {
-            var toResolve = document.getElementById("bugEdit").value;
-            
-            if(toResolve == "bug1") {
-                ticket1Flag = 0;
-                ticketID -= 1;
-            } else if(toResolve == "bug2") {
-                ticket2Flag = 0;
-                ticketID -= 1;
-            } else if(toResolve == "bug3") {
-                ticket3Flag = 0;
-                ticketID -= 1;
-            }
-            printTickets();
-        }
-        
-    </script>
     
     <form action="http://foo.com" method="post">
         <div>
@@ -273,6 +144,7 @@ Submit</button>
 <p id="printLinkToSite1"></p>
 <p id="printDeveloper1"></p>
 <p id="printTester1"></p>
+<p id="printStatus1"></p>
     
 <p id="printTitle2"></p>
 <p id="printName2"></p>
@@ -283,6 +155,7 @@ Submit</button>
 <p id="printLinkToSite2"></p>
 <p id="printDeveloper2"></p>
 <p id="printTester2"></p>
+<p id="printStatus2"></p>
     
 <p id="printTitle3"></p>
 <p id="printName3"></p>
@@ -293,6 +166,40 @@ Submit</button>
 <p id="printLinkToSite3"></p>
 <p id="printDeveloper3"></p>
 <p id="printTester3"></p>
+<p id="printStatus3"></p>
+    
+<p id="printArchiveTitle1"></p>
+<p id="printArchiveName1"></p>
+<p id="printArchiveProblem1"></p>
+<p id="printArchiveDescription1"></p>
+<p id="printArchiveErrorType1"></p>
+<p id="printArchivePriority1"></p>
+<p id="printArchiveLinkToSite1"></p>
+<p id="printArchiveDeveloper1"></p>
+<p id="printArchiveTester1"></p>
+<p id="printArchiveStatus1"></p>
+    
+<p id="printArchiveTitle2"></p>
+<p id="printArchiveName2"></p>
+<p id="printArchiveProblem2"></p>
+<p id="printArchiveDescription2"></p>
+<p id="printArchiveErrorType2"></p>
+<p id="printArchivePriority2"></p>
+<p id="printArchiveLinkToSite2"></p>
+<p id="printArchiveDeveloper2"></p>
+<p id="printArchiveTester2"></p>
+<p id="printArchiveStatus2"></p>
+    
+<p id="printArchiveTitle3"></p>
+<p id="printArchiveName3"></p>
+<p id="printArchiveProblem3"></p>
+<p id="printArchiveDescription3"></p>
+<p id="printArchiveErrorType3"></p>
+<p id="printArchivePriority3"></p>
+<p id="printArchiveLinkToSite3"></p>
+<p id="printArchiveDeveloper3"></p>
+<p id="printArchiveTester3"></p>
+<p id="printArchiveStatus3"></p>
 </div>
 </center>
 <!--<div id = "result"></div>
@@ -320,6 +227,14 @@ else {
 	<option value = "bug2"> Bug Two </option>
 	<option value = "bug3"> Bug Three </option>
 </select>
+    
+<p> Update Status of bug </p>
+<select id = "statusEdit" name = "status">
+    <option value = "verify"> Bug Verification </option>
+    <option value = "Fix in Progress"> Fix in Progress </option>
+    <option value = "Fix Verification"> Fix Verification </option>
+    <option value = "Ready for Deployment"> Ready for Deployment </option>
+</select>
 
 <p> Assign Tester to bug </p>
 <select id = "testerEdit" name "testers">
@@ -342,6 +257,241 @@ else {
 
 
 </center>
+    
+<script>
+        var ticket1, ticket1Flag = 0, ticket1Archive;
+        var ticket2, ticket2Flag = 0, ticket2Archive;
+        var ticket3, ticket3Flag = 0, ticket3Archive;
+        var ticketID = 1;
+
+        function Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester) {
+            this.name = name;
+            this.problem = problem;
+            this.description = description;
+            this.errorType = errorType;
+            this.priority = priority;
+            this.linkToSite = linkToSite;
+            this.ticketID = ticketID;
+            this.currentDev = currentDev;
+            this.currentStatus = currentStatus;
+            this.currentTester = currentTester;
+        }
+        ticket1 = new Ticket("", "", "", "", "", "", "", "", "", "");
+        ticket2 = new Ticket("", "", "", "", "", "", "", "", "", "");
+        ticket3 = new Ticket("", "", "", "", "", "", "", "", "", "");
+        ticket1Archive = new Ticket("", "", "", "", "", "", "", "", "", "");
+        ticket2Archive = new Ticket("", "", "", "", "", "", "", "", "", "");
+        ticket3Archive = new Ticket("", "", "", "", "", "", "", "", "", "");
+    
+
+        //var submit = document.getElementById("submit");
+ 
+        //submit.onclick = 
+        function newTicket() {
+            
+            var description = document.getElementById("description").value,
+                name = document.getElementById("name").value,
+                problem = document.getElementById("problem").value,
+                errorType = document.getElementById("bugs").value,
+                priority = document.getElementById("priority").value,
+                linkToSite = document.getElementById("mail").value,
+                currentStatus = "Bug Verification",
+                currentDev = "Unassigned",
+                currentTester = "Unassigned";
+            if(ticket1Flag == 0) {
+                ticket1 = new Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester);
+                ticket1Flag = 1;
+            } else if(ticket2Flag == 0) {
+                ticket2 = new Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester);
+                ticket2Flag = 1;
+            } else if(ticket3Flag == 0) {
+                ticket3 = new Ticket(name, problem, description, errorType, priority, linkToSite, ticketID, currentDev, currentStatus, currentTester);
+                ticket3Flag = 1;
+            } else {
+                alert("Error, submit no more than three tickets for this demonstration");
+            }
+            
+            ticketID += 1;
+            printTickets();
+            
+            //return ticketList;
+            //document.getElementById("testing").innerHTML = myName;
+            //document.getElementById("testing").innerHTML = ticketList[0];
+        };
+        function printTickets() {
+             
+                document.getElementById("printTitle1").innerHTML = "<b>Ticket 1 Information:</b>";
+                document.getElementById("printName1").innerHTML = "Reported by: " + ticket1.name;
+                document.getElementById("printProblem1").innerHTML = "Problem: " + ticket1.problem;
+                document.getElementById("printDescription1").innerHTML = "Description: " + ticket1.description;
+                document.getElementById("printErrorType1").innerHTML = "Error Type: " + ticket1.errorType;
+                document.getElementById("printPriority1").innerHTML = "Priority: " + ticket1.priority;
+                document.getElementById("printLinkToSite1").innerHTML = "Link to site: " + ticket1.linkToSite;
+                document.getElementById("printDeveloper1").innerHTML = "Current developer assigned: " + ticket1.currentDev;
+                document.getElementById("printTester1").innerHTML = "Current tester assigned: " + ticket1.currentTester;
+                document.getElementById("printStatus1").innerHTML = "Current status: " + ticket1.currentStatus;
+            
+            
+                document.getElementById("printTitle2").innerHTML = "<b>Ticket 2 Information:</b>";
+                document.getElementById("printName2").innerHTML = "Reported by: " + ticket2.name;
+                document.getElementById("printProblem2").innerHTML = "Problem: " + ticket2.problem;
+                document.getElementById("printDescription2").innerHTML = "Description: " + ticket2.description;
+                document.getElementById("printErrorType2").innerHTML =  "Error Type: " + ticket2.errorType;
+                document.getElementById("printPriority2").innerHTML = "Priority: " + ticket2.priority;
+                document.getElementById("printLinkToSite2").innerHTML = "Link to site: " + ticket2.linkToSite;
+                document.getElementById("printDeveloper2").innerHTML = "Current developer assigned: " + ticket2.currentDev;
+                document.getElementById("printTester2").innerHTML = "Current tester assigned: " + ticket2.currentTester;
+                document.getElementById("printStatus2").innerHTML = "Current status: " + ticket2.currentStatus;
+            
+                document.getElementById("printTitle3").innerHTML = "<b>Ticket 3 Information:</b>";
+                document.getElementById("printName3").innerHTML = "Reported by: " + ticket3.name;
+                document.getElementById("printProblem3").innerHTML = "Problem: " + ticket3.problem;
+                document.getElementById("printDescription3").innerHTML = "Description: " + ticket3.description;
+                document.getElementById("printErrorType3").innerHTML = "Error Type: " + ticket3.errorType;
+                document.getElementById("printPriority3").innerHTML = "Priority: " + ticket3.priority;
+                document.getElementById("printLinkToSite3").innerHTML = "Link to site: " + ticket3.linkToSite;
+                document.getElementById("printDeveloper3").innerHTML = "Current developer assigned: " + ticket3.currentDev;
+                document.getElementById("printTester3").innerHTML = "Current tester assigned: " + ticket3.currentTester;
+                document.getElementById("printStatus3").innerHTML = "Current status: " + ticket3.currentStatus;
+            
+                document.getElementById("printArchiveTitle1").innerHTML = "<b>Ticket Archive 1 Information:</b>";
+                document.getElementById("printArchiveName1").innerHTML = "Reported by: " + ticket1Archive.name;
+                document.getElementById("printArchiveProblem1").innerHTML = "Problem: " + ticket1Archive.problem;
+                document.getElementById("printArchiveDescription1").innerHTML = "Description: " + ticket1Archive.description;
+                document.getElementById("printArchiveErrorType1").innerHTML = "Error Type: " + ticket1Archive.errorType;
+                document.getElementById("printArchivePriority1").innerHTML = "Priority: " + ticket1Archive.priority;
+                document.getElementById("printArchiveLinkToSite1").innerHTML = "Link to site: " + ticket1Archive.linkToSite;
+                document.getElementById("printArchiveDeveloper1").innerHTML = "Developer assigned: " + ticket1Archive.currentDev;
+                document.getElementById("printArchiveTester1").innerHTML = "Tester assigned: " + ticket1Archive.currentTester;
+                document.getElementById("printArchiveStatus1").innerHTML = "Current status: " + ticket1Archive.currentStatus;
+            
+            
+                document.getElementById("printArchiveTitle2").innerHTML = "<b>Ticket 2 Information:</b>";
+                document.getElementById("printArchiveName2").innerHTML = "Reported by: " + ticket2Archive.name;
+                document.getElementById("printArchiveProblem2").innerHTML = "Problem: " + ticket2Archive.problem;
+                document.getElementById("printArchiveDescription2").innerHTML = "Description: " + ticket2Archive.description;
+                document.getElementById("printArchiveErrorType2").innerHTML =  "Error Type: " + ticket2Archive.errorType;
+                document.getElementById("printArchivePriority2").innerHTML = "Priority: " + ticket2Archive.priority;
+                document.getElementById("printArchiveLinkToSite2").innerHTML = "Link to site: " + ticket2Archive.linkToSite;
+                document.getElementById("printArchiveDeveloper2").innerHTML = "Current developer assigned: " + ticket2Archive.currentDev;
+                document.getElementById("printArchiveTester2").innerHTML = "Current tester assigned: " + ticket2Archive.currentTester;
+                document.getElementById("printArchiveStatus2").innerHTML = "Current status: " + ticket2Archive.currentStatus;
+            
+                document.getElementById("printArchiveTitle3").innerHTML = "<b>Ticket 3 Information:</b>";
+                document.getElementById("printArchiveName3").innerHTML = "Reported by: " + ticket3Archive.name;
+                document.getElementById("printArchiveProblem3").innerHTML = "Problem: " + ticket3Archive.problem;
+                document.getElementById("printArchiveDescription3").innerHTML = "Description: " + ticket3Archive.description;
+                document.getElementById("printArchiveErrorType3").innerHTML = "Error Type: " + ticket3Archive.errorType;
+                document.getElementById("printArchivePriority3").innerHTML = "Priority: " + ticket3Archive.priority;
+                document.getElementById("printArchiveLinkToSite3").innerHTML = "Link to site: " + ticket3Archive.linkToSite;
+                document.getElementById("printArchiveDeveloper3").innerHTML = "Current developer assigned: " + ticket3Archive.currentDev;
+                document.getElementById("printArchiveTester3").innerHTML = "Current tester assigned: " + ticket3Archive.currentTester;
+                document.getElementById("printArchiveStatus3").innerHTML = "Current status: " + ticket3Archive.currentStatus;
+            
+        }
+                                                
+
+        function updateTickets() {
+            var bugToEdit = document.getElementById("bugEdit").value,
+                newTester = document.getElementById("testerEdit").value,
+                newDev = document.getElementById("developerEdit").value,
+                newStatus = document.getElementById("statusEdit").value;         
+            
+            if(bugToEdit == "bug1") {
+                ticket1.currentTester = newTester;
+                ticket1.currentDev = newDev;
+                ticket1.currentStatus = newStatus;
+                
+            } else if(bugToEdit == "bug2") {
+                ticket2.currentTester = newTester;
+                ticket2.currentDev = newDev;
+                ticket2.currentStatus = newStatus;
+            } else if(bugToEdit == "bug3") {
+                ticket3.currentTester = newTester;
+                ticket3.currentDev = newDev;
+                ticket3.currentStatus = newStatus;
+            }
+            printTickets();
+            
+        }
+        
+        function resolveTicket() {
+            var toResolve = document.getElementById("bugEdit").value;
+            
+            if(toResolve == "bug1") {
+                ticket1Flag = 0;
+                ticketID -= 1;
+                ticket1Archive = new Ticket(ticket1.name, 
+                                            ticket1.problem, 
+                                            ticket1.description, 
+                                            ticket1.errorType, 
+                                            ticket1.priority, 
+                                            ticket1.linkToSite, 
+                                            ticket1.ticketID, 
+                                            ticket1.currentDev, 
+                                            ticket1.currentStatus, 
+                                            ticket1.currentTester);
+                ticket1.name = "";
+                ticket1.problem = "";
+                ticket1.description = "";
+                ticket1.errorType = "";
+                ticket1.priority = "";
+                ticket1.linkToSite = "";
+                ticket1.ticketID = "";
+                ticket1.currentDev = "";
+                ticket1.currentStatus = "";
+                ticket1.currentTester = "";
+            } else if(toResolve == "bug2") {
+                ticket2Flag = 0;
+                ticketID -= 1;
+                ticket2Archive = new Ticket(ticket2.name, 
+                                            ticket2.problem, 
+                                            ticket2.description, 
+                                            ticket2.errorType, 
+                                            ticket2.priority, 
+                                            ticket2.linkToSite, 
+                                            ticket2.ticketID, 
+                                            ticket2.currentDev, 
+                                            ticket2.currentStatus, 
+                                            ticket2.currentTester);
+                ticket2.name = "";
+                ticket2.problem = "";
+                ticket2.description = "";
+                ticket2.errorType = "";
+                ticket2.priority = "";
+                ticket2.linkToSite = "";
+                ticket2.ticketID = "";
+                ticket2.currentDev = "";
+                ticket2.currentStatus = "";
+                ticket2.currentTester = "";
+            } else if(toResolve == "bug3") {
+                ticket3Flag = 0;
+                ticketID -= 1;
+                ticket3Archive = new Ticket(ticket3.name, 
+                                            ticket3.problem, 
+                                            ticket3.description, 
+                                            ticket3.errorType, 
+                                            ticket3.priority, 
+                                            ticket3.linkToSite, 
+                                            ticket3.ticketID, 
+                                            ticket3.currentDev, 
+                                            ticket3.currentStatus, 
+                                            ticket3.currentTester);
+                ticket3.name = "";
+                ticket3.problem = "";
+                ticket3.description = "";
+                ticket3.errorType = "";
+                ticket3.priority = "";
+                ticket3.linkToSite = "";
+                ticket3.ticketID = "";
+                ticket3.currentDev = "";
+                ticket3.currentStatus = "";
+                ticket3.currentTester = "";
+            }
+            printTickets();
+        }
+        
+    </script>
 
 
 <!--
