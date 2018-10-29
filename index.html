@@ -178,17 +178,22 @@ button {
             var bugToEdit = document.getElementById("bugEdit").value,
                 newTester = document.getElementById("testerEdit").value,
                 newDev = document.getElementById("developerEdit").value;
-            
+		newStatus = document.getElementByID("statuses").value;            
+
             if(bugToEdit == "bug1") {
                 ticket1.currentTester = newTester;
                 ticket1.currentDev = newDev;
+		ticket1.currentStatus = newStatus;
                 
             } else if(bugToEdit == "bug2") {
                 ticket2.currentTester = newTester;
                 ticket2.currentDev = newDev;
+		ticket2.currentStatus = newStatus;
+
             } else if(bugToEdit == "bug3") {
                 ticket3.currentTester = newTester;
                 ticket3.currentDev = newDev;
+		ticket3.currentStatus = newStatus;
             }
             printTickets();
             
@@ -199,7 +204,7 @@ button {
             
             if(toResolve == "bug1") {
                 ticket1Flag = 0;
-                ticketID -= 1;
+                ticketID i-= 1;
             } else if(toResolve == "bug2") {
                 ticket2Flag = 0;
                 ticketID -= 1;
@@ -273,6 +278,7 @@ Submit</button>
 <p id="printLinkToSite1"></p>
 <p id="printDeveloper1"></p>
 <p id="printTester1"></p>
+<p id="printStatus1"></p>
     
 <p id="printTitle2"></p>
 <p id="printName2"></p>
@@ -283,6 +289,7 @@ Submit</button>
 <p id="printLinkToSite2"></p>
 <p id="printDeveloper2"></p>
 <p id="printTester2"></p>
+<p id="printStatus2"></p>
     
 <p id="printTitle3"></p>
 <p id="printName3"></p>
@@ -293,6 +300,7 @@ Submit</button>
 <p id="printLinkToSite3"></p>
 <p id="printDeveloper3"></p>
 <p id="printTester3"></p>
+<p id="printStatus3"></p>
 </div>
 </center>
 <!--<div id = "result"></div>
@@ -319,6 +327,14 @@ else {
 	<option value = "bug1"> Bug One </option>
 	<option value = "bug2"> Bug Two </option>
 	<option value = "bug3"> Bug Three </option>
+</select>
+
+<p> Update Status of Bug </p>
+<select id = "statuses" name = "statuses">
+        <option value = "verification"> Bug Verification </option>
+        <option value = "fix"> Fix in Progress </option>
+        <option value = "verifyFix"> Fix Verification </option>
+        <option value = "deploy"> Ready for Deployment </option>
 </select>
 
 <p> Assign Tester to bug </p>
