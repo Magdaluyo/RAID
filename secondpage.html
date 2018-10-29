@@ -123,12 +123,19 @@ button {
 Submit</button>
 -->
 
+<script>
+function myFunction() {
+	document.getElementById("demo").innerHTML = "bug one submitted";
+}
+</script>
+
 <form method = "get" action= "page2.html">
-	<button type = "submit">Submit</button>
+	<!--<button type = "submit">Submit</button> -->
+	<button type = "button" onclick = "myFunction()">Submit</button>
 </form>
 
 <form method = "get" action = "index.html">
-	<button type = "return"> Return to Login Page</button
+	<button type = "return"> Return to Login Page</button>
 </form>
 
 </body>
