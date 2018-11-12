@@ -19,7 +19,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-bug w3-margin-right"></i>RAID.io</a>
   
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
-    <img src="/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+    <img src="https://www.w3schools.com/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
   </a>
  </div>
 </div>
@@ -42,7 +42,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">User's Name</h4>
-         <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <p class="w3-center"><img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> User </p>
         
@@ -147,7 +147,21 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <body>
 
     <form action="http://foo.com" method="post">
+
+<label for="software">Software</label>
+
+<select id="software" name="software">
+  <option value="selectone">-- Select One --     </option>
+  <option value="ecampus">eCampus</option>
+  <option value="camino">Camino</option>
+  <option value="evaluations">Evaluations</option>
+  <option value="courseavail">Course Avail</option>
+  <option value="email">Email</option>
+  <option value="cowell">Cowell Center</option>
+</select>
+
         <div>
+		<br>
           <label for="problem">Problem:</label> <input type="text" id="problem" name="problem">
         </div>
         <div>
@@ -158,6 +172,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <label for="bugs">Type of Error</label>
 
 <select id="bugs" name="bugs">
+  <option value="selectone">-- Select One --</option>
   <option value="unknown">Unknown</option>
   <option value="buttonwontclick">Button won't click</option>
   <option value="pagewontload">Page won't load</option>
@@ -165,11 +180,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
   <option value="pagenotfound">Page not found</option>
   <option value="other">Other</option>
 </select>
-
+<!--
 	<div>
 	<br>
           <label for="mail">Link to Website:</label> <input type="email" id="mail" name="user_mail">
 	</div>
+-->
 <br>
 </form>
 
@@ -183,6 +199,7 @@ Submit</button>
 </form> -->
 
 <center>
+<br>
 <!--<p id="demo">Current Bugs:</p>-->
 <button type = "button" onclick="newTicket()">Submit Form</button>
 </center>
