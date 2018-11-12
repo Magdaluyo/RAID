@@ -152,12 +152,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 <select id="software" name="software">
   <option value="selectone">-- Select One --     </option>
-  <option value="ecampus">eCampus</option>
-  <option value="camino">Camino</option>
-  <option value="evaluations">Evaluations</option>
-  <option value="courseavail">Course Avail</option>
-  <option value="email">Email</option>
-  <option value="cowell">Cowell Center</option>
+  <option value="eCampus">eCampus</option>
+  <option value="Camino">Camino</option>
+  <option value="Evaluations">Evaluations</option>
+  <option value="Course Avail">Course Avail</option>
+  <option value="Email">Email</option>
+  <option value="Cowell Center">Cowell Center</option>
 </select>
 
         <div>
@@ -252,6 +252,8 @@ Submit</button>
 
 
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -263,28 +265,29 @@ Submit</button>
     messagingSenderId: "494501454671"
   };
   firebase.initializeApp(config);
+
+  const firestore = firebase.firestore();
+  const settings = {/* your settings... */ timestampsInSnapshots: true};
+  firestore.settings(settings);
+
 </script>
 
 
 <!-- Firebase App is always required and must be first -->
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>-->
 
 <!-- Add additional services that you want to use -->
 <!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script> -->
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-messaging.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>-->
+<!--<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>-->
+<!--<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-functions.js"></script> -->
 
 <!-- Comment out (or don't include) services that you don't want to use -->
 <!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-storage.js"></script> -->
 
-<script>
-  var config = {
-    // ...
-  };
-  firebase.initializeApp(config);
-</script>
+<script src="script.js"></script>
+
 
 
 
