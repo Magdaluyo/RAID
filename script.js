@@ -15,7 +15,8 @@ function newTicket() {
 		typeoferror: errorText,
 		reporter: "dfh5lXUrkYMpGRfzDatc",
 		hasreport: false,
-		created: timestamp
+		created: timestamp,
+		status: "Pending Verification"
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
