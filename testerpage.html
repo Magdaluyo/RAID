@@ -124,8 +124,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                 <option value = "readyDeployment"> Ready for Deployment </option>
         </select>
 
+	<button class = "open-button" onclick = openForm()">Open Form </button>
+	<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+
+    <label for="email"><b>Notes</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
 
 
+    <button type="submit" class="btn">Add Notes</button>
+    <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
 
  
       </div>
@@ -167,6 +178,17 @@ function openNav() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
+function openForm() {
+	document.getElementById("myForm").style.display = "block;
+}
+
+function closeForm() {
+	document.getElementById("myForm").style.display = "none";
+}
+
+
+
 </script>
 
 </body>
