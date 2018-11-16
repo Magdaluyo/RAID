@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>RAID.ioTESTING</title>
+<title>RAID.io</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -120,30 +120,35 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 		<option value = "Tester B"> Tester B </option>
 	</select>
  
+
+	   <select id = "Developers" name="Developers" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-life-saver"></i>
+                <option value = "choosedeveloper"> --Assign Bug to Developer-- </option>
+                <option value = "Developer A"> Developer A </option>
+                <option value = "Developer B"> Developer B </option>
+        </select>
+
+	
+	 <select id = "Priorities" name="Priorities" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-sort-amount-desc"></i>
+                <option value = "choosepriority"> --Update Priority of Bug-- </option>
+                <option value = "Severe"> Severe </option>
+                <option value = "Moderate"> Moderate </option>
+		<option value = "Low"> Low </option>
+        </select>
+
+
+	 <select id = "Status" name="Status" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-asterisk"></i>
+                <option value = "chooseStatus"> --Update Status of Bug-- </option>
+                <option value = "bugVerification"> Bug Verification </option>
+                <option value = "fixProgress"> Fix in Progress </option>
+		<option value = "fixVerification"> Fix Verification </option>
+		<option value = "readyDeployment"> Ready for Deployment </option>
+		<option value = "deployed"> Deployed </option>
+        </select>
+
+
+
       </div>
      
-     <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-       <i class="fa fa-bug"></i> <p>Bug Ticket Number 2</p>
-        <hr class="w3-clear">
-
-
-	 <p>Software: Evaluations </p>
-        <p>Problem: Can't evaluate selected class </p>
-        <p>Description: Evaluation page for class not found</p>
-        <p>Type of Error: Page not found</p>
-        <p>Status of Bug: Pending Verification </p>
-	<p>Tester:Unassigned</p>
-	<p>Developer:Unassigned</p>
-
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-level-up"></i>  Assign Bug to Tester </button>
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-life-saver"></i>  Assign Bug to Developer </button>
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-sort-amount-desc"></i>  Update Priority of Bug </button>
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-asterisk"></i>  Update Status of Bug </button>
-
-
-      </div>
-
-      
     <!-- End Middle Column -->
     </div>
     

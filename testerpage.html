@@ -109,11 +109,25 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <p>Notes:</p>
 
         
-	 <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-asterisk"></i>  Update Status of Bug </button>
+	 <select id = "Priorities" name="Priorities" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-sort-amount-desc"></i>
+                <option value = "choosepriority"> --Update Priority of Bug-- </option>
+                <option value = "Severe"> Severe </option>
+                <option value = "Moderate"> Moderate </option>
+                <option value = "Low"> Low </option>
+        </select>
+       
 
-  	 <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-pencil-square-o"></i>  Update Notes </button>
 
-        
+	 <select id = "Status" name="Status" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-asterisk"></i>
+                <option value = "chooseStatus"> --Update Status of Bug-- </option>
+                <option value = "fixProgress"> Fix in Progress </option>
+                <option value = "readyDeployment"> Ready for Deployment </option>
+        </select>
+
+
+
+
+ 
       </div>
      
      
