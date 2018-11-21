@@ -26,8 +26,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 	<center>
 	<!-- Middle Column -->
-    <div class="w3-col m7">
- 	<p> Login as: </p>
+    <div class="w3-col m11">
+
+	<br><br><p> Login as: </p>
 
 	<form method = "get" action = "userpage.html">
         <button type = "user"> End User </button>
@@ -45,24 +46,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <button type = "developer"> Developer </button>
 	</form>
 
+	<br><input id="userEmail" type="email" placeholder="Email">
+       <input id="userPassword" type="password" placeholder="Password">
+       <button id="btnLogin">
+          Log in
+       </button>
+
 	</center>
       
       
     <!-- End Middle Column -->
     </div>
     
-   <!-- Manny trying to add a login feature -->
-    <div>
-        <h1>Log in Here!</h1>
-	   <input id="userEmail" type="email" placeholder="Email">
-	   <input id="userPassword" type="password" placeholder="Password">
-	   <button id="btnLogin">
-		  Log in
-	   </button>
-    </div>
-<br>
-<h1>Testing the header feature</h1>
- 
 <script>
 // Accordion
 function myFunction(id) {
