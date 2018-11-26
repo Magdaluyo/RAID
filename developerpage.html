@@ -3,8 +3,11 @@ HTML File used as the main dashboard once a developer logs in. Allows developer 
 -->
 
 <!DOCTYPE html>
+
 <html>
 <title>RAID.io</title>
+
+<!-- CSS Sources for Interface -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,7 +19,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
 <body class="w3-theme-l5">
 
-<!-- Navbar -->
+<!-- Top Bar on Page -->
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
@@ -46,19 +49,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       </div>
       <br>
       
-      <!-- Accordion -->
+      <!-- Links to other pages in software -->
       <div class="w3-card w3-round">
         <div class="w3-white">
-          <!-- <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-child fa-fw w3-margin-right"></i> Report New Bug</button> -->
 
 	<form method = "get" action = "bugform.html">
 	 <button type = "return" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-child fa-fw w3-margin-right"></i> Report New Bug</button>
 	</form>
-          <div id="Demo1" class="w3-hide w3-container">
-            <p>Some text..</p>
-          </div>
 
-	 <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-sign-out fa-fw w3-margin-right"></i> View History of Bugs </button>
 
 	<form method = "get" action = "index.html">
           <button type = "return" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-sign-out fa-fw w3-margin-right"></i> Logout </button>
@@ -70,29 +68,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       
      
     
+</div>    
+<!-- End Left Column -->
+
     
-    <!-- End Left Column -->
-    </div>
-    
-    <!-- Middle Column -->
+<!-- Begin Middle Column -->
     <div class="w3-col m7">
  
       
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
        <i class="fa fa-bug"></i> <p>Bug Ticket Number 1</p>
         <hr class="w3-clear">
-
-	<p>Software: Camino </p>
-        <p>Problem: Can't view module </p>
-        <p>Description: Course won't open when I click it</p>
-        <p>Type of Error: Button won't click</p>
-        <p>Status of Bug: Fix in Progress </p>
-        <p>Priority of Bug: Severe </p>
-        <p>Tester: Tester B</p>
-        <p>Developer: Developer A</p>
-        <br>
-        <p>Notes: Tester A found problems only with COEN classes</p>
-
 
 
 	 <select id = "Status" name="Status" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-asterisk"></i>
@@ -104,23 +90,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         
       </div>
      
-     
-      
-    <!-- End Middle Column -->
-    </div>
+</div>
+<!-- End Middle Column -->
     
-    
-  <!-- End Grid -->
-  </div>
-  
+</div>
+<!-- End Grid -->
+ 
+</div> 
 <!-- End Page Container -->
 </div>
-<br>
 
 </body>
 
-
-
+<!-- Connection to Database -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -136,18 +118,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </script>
 
 
-<!-- Firebase App is always required and must be first -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
-
-<!-- Add additional services that you want to use -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script> -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-functions.js"></script> -->
-
-<!-- Comment out (or don't include) services that you don't want to use -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-storage.js"></script> -->
 
 <script>
   var config = {
@@ -156,8 +128,4 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
   firebase.initializeApp(config);
 </script>
 
-
-
 </html> 
-
-

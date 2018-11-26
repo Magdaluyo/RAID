@@ -3,8 +3,11 @@ HTML File used as the main dashboard once an end-user logs in. Allows user to vi
 -->
 
 <!DOCTYPE html>
+
 <html>
 <title>RAID.io</title>
+
+<!-- CSS Sources for User Interface -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,7 +19,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
 <body class="w3-theme-l5">
 
-<!-- Navbar -->
+<!-- Top bar on page -->
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
@@ -47,7 +50,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       </div>
       <br>
       
-      <!-- Accordion -->
+      <!-- Links to other pages in software -->
       <div class="w3-card w3-round">
         <div class="w3-white">
 
@@ -61,34 +64,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       </div>
       <br>
       
-     
+</div>    
+<!-- End Left Column -->
     
-    
-    <!-- End Left Column -->
-    </div>
-    
-    <!-- Middle Column -->
+<!-- Begin Middle Column -->
     <div class="w3-col m7">
  
-      
       <div class='w3-container w3-card w3-white w3-round w3-margin' id="user_list">
 		<h3>Bugs Reported</h3>
-
       
-    <!-- End Middle Column -->
-    </div>
-    
-    
-  <!-- End Grid -->
-  </div>
-  
-<!-- End Page Container -->
 </div>
+<!-- End Middle Column -->
+    
+</div>    
+<!-- End Grid -->
+ 
+</div> 
+<!-- End Page Container -->
+
 <br>
 
 </body>
 
-
+<!-- Connection to database -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
@@ -96,5 +94,3 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 
 </html> 
-
-

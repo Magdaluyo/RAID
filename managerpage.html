@@ -3,8 +3,11 @@ HTML File used as the main dashboard once a manager logs in. Allows manager to v
 -->
 
 <!DOCTYPE html>
+
 <html>
 <title>RAID.io</title>
+
+<!-- CSS Sources for User Interface -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,7 +19,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
 <body class="w3-theme-l5">
 
-<!-- Navbar -->
+<!-- Top bar on page -->
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
@@ -46,7 +49,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       </div>
       <br>
       
-      <!-- Accordion -->
+      <!-- Links to other pages in software -->
       <div class="w3-card w3-round">
         <div class="w3-white">
 
@@ -54,10 +57,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 	 <button type = "return" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-child fa-fw w3-margin-right"></i> Report New Bug</button>
 	</form>
 
-	 <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-sign-out fa-fw w3-margin-right"></i> View History of Bugs </button>
-          <div id="Demo2" class="w3-hide w3-container">
-            <p>Still need to add</p>
-          </div>
 
 	 <form method = "get" action = "index.html">
         	 <button type = "return" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-bug fa-fw w3-margin-right"></i> Logout </button>
@@ -69,11 +68,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       
      
     
+</div>    
+<!-- End Left Column -->
     
-    <!-- End Left Column -->
-    </div>
-    
-    <!-- Middle Column -->
+<!-- Begin Middle Column -->
     <div class="w3-col m7">
  
       
@@ -112,39 +110,26 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         </select>
           
     <br>
-<!--
-    <button class="w3-button w3-theme-d1 w3-margin-bottom" onclick="viewReport()">View Report</button>
--->      
     <div class='w3-container w3-card w3-white w3-round w3-margin' id="report_list">
           </div>
 
-
-
-      <!--</div>-->
-     
-    <!-- End Middle Column -->
-    </div>
-    
-    
-  <!-- End Grid -->
-  </div>
-  
-<!-- End Page Container -->
 </div>
+<!-- End Middle Column -->
+
+</div>    
+<!-- End Grid -->
+  
+</div>
+<!-- End Page Container -->
+
 <br>
 
 </body>
 
-
-
+<!-- Connection to Database -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
 <script src="script.js"></script>
 
-
-
-
 </html> 
-
-
