@@ -60,8 +60,10 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
 
 function viewReport() {
     
-   document.getElementById("report_list").innerHTML = 1 + 1;
-   db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
+    var dabass = firebase.firestore();
+
+    document.getElementById("report_list").innerHTML = 1 + 1;
+    dabass.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
     .get()
     .then(function(querySnapshot) {
 		if(!querySnapshot.empty) {
