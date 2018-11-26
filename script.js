@@ -1,4 +1,5 @@
 // Database Initialization
+// This is for the current RAID.io page but these values can be changed to a new firestore backend
 var config = {
 	apiKey: "AIzaSyBthwSzrnSsJ_HIxqDlPkW9NU1_iA2jLCs",
 	authDomain: "raidscu.firebaseapp.com",
@@ -45,8 +46,7 @@ function newTicket() {
 
 
 // Document query for end users
-// 
-
+// populates user_list section in corresponding html file
 function userList() {
 const user_list = document.querySelector("#user_list");
 
@@ -75,6 +75,7 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
 }
 
 // document query for managers
+// populates report_list section in corresponding html file
 function managerList() {
 const report_list = document.querySelector("#report_list");
 
@@ -104,6 +105,7 @@ db.collection("tickets").orderBy("created")
 }
 
 // document query for testers
+// populates tester_list section in corresponding html file
 function testerList() {
 const tester_list = document.querySelector("#tester_list");
 
@@ -147,3 +149,4 @@ db.collection("tickets").orderBy("created")
         console.log("Error getting documents: ", error);
     }); 
 }
+
