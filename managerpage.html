@@ -18,14 +18,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-bug w3-margin-right"></i>RAID.io</a>
   
-  <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#" class="w3-bar-item w3-button">Status of Bug Ticket Number A updated</a>
-      <a href="#" class="w3-bar-item w3-button">Status of Bug Ticket Number B updated</a>
-      <a href="#" class="w3-bar-item w3-button">Status of Bug Ticket Number C updated</a>
-    </div>
-  </div>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
     <img src="https://www.w3schools.com/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
   </a>
@@ -61,7 +53,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <!-- Accordion -->
       <div class="w3-card w3-round">
         <div class="w3-white">
-          <!-- <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-child fa-fw w3-margin-right"></i> Report New Bug</button> -->
 
 	<form method = "get" action = "bugform.html">
 	 <button type = "return" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-child fa-fw w3-margin-right"></i> Report New Bug</button>
@@ -93,26 +84,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <div class='w3-container w3-card w3-white w3-round w3-margin' id = "report_list">
 	<h3>Bugs Reported</h3>
 	
-	<!--
-	<p>Software: Camino </p>
-        <p>Problem: Can't view module </p>
-        <p>Description: Course won't open when I click it</p>
-        <p>Type of Error: Button won't click</p>
-        <p>Status of Bug: Pending Verification </p>
-	<p>Priority of Bug: Severe </p>
-	<p>Tester: Tester B</p>
-	<p>Developer: Developer A</p>
-	<br>
-	<p>Notes:</p>
-	-->
-	<!--
-	<button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-level-up"></i>  Assign Bug to Tester </button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-life-saver"></i>  Assign Bug to Developer </button>           
-	<button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-sort-amount-desc"></i>  Update Priority of Bug </button>
-	<button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-asterisk"></i>  Update Status of Bug </button>
-       -->
-
-
 	<select id = "Testers" name="Testers" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-level-up"></i>
 		<option value = "choosetester"> --Assign Bug to Tester-- </option>
 		<option value = "Tester A"> Tester A </option>
