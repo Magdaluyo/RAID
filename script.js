@@ -11,7 +11,11 @@ firebase.initializeApp(config);
 
 var db = firebase.firestore();
 
-// Function used by bugform.html to create a bug ticket
+/** newTicket()
+  * Function used by bugform.html to create a bug ticket
+  * Takes information from user entered fields on page
+  * Upon completion, the new ticket is properly added to the backend
+  */
 function newTicket() {
 
 	var problemText = document.getElementById("problem").value;
@@ -40,7 +44,10 @@ function newTicket() {
 }
 
 
-// document query for end users
+// Document query for end users
+// 
+
+function userList() {
 const user_list = document.querySelector("#user_list");
 
 db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
@@ -65,8 +72,10 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
+}
 
 // document query for managers
+function managerList() {
 const report_list = document.querySelector("#report_list");
 
 db.collection("tickets").orderBy("created")
@@ -92,8 +101,10 @@ db.collection("tickets").orderBy("created")
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
+}
 
 // document query for testers
+function testerList() {
 const tester_list = document.querySelector("#tester_list");
 
 db.collection("tickets").orderBy("created")
@@ -135,3 +146,4 @@ db.collection("tickets").orderBy("created")
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     }); 
+}
