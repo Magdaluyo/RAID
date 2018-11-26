@@ -29,10 +29,10 @@ function newTicket() {
 
 const user_list = document.querySelector("#user_list");
 
-db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc")
+db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
     .get()
     .then(function(querySnapshot) {
-		//while(querySnapshot.empty) {
+		if(!querySnapshot.empty) {
 		//	user_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Current Bugs</h6><hr class='w3-clear'></div>";
 		//}
 		//else {
@@ -49,7 +49,10 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc")
         		user_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
 				user_list.innerHTML += "<hr class='w3-clear'>";
 	        });
-		//}
+		}
+		else {
+			user_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Current Bugs</h6><hr class='w3-clear'></div>";
+		}
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
