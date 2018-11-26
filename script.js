@@ -1,3 +1,13 @@
+var config = {
+	apiKey: "AIzaSyBthwSzrnSsJ_HIxqDlPkW9NU1_iA2jLCs",
+	authDomain: "raidscu.firebaseapp.com",
+	databaseURL: "https://raidscu.firebaseio.com",
+	projectId: "raidscu",
+	storageBucket: "raidscu.appspot.com",
+	messagingSenderId: "494501454671"
+};
+firebase.initializeApp(config);
+
 var db = firebase.firestore();
 
 function newTicket() {
@@ -58,11 +68,11 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
         console.log("Error getting documents: ", error);
     });
 
-function viewReport() {
+//function viewReport() {
     
     const report_list = document.querySelector("#report_list");
 
-    db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc")
+    db.collection("tickets").orderBy("created")
     .get()
     .then(function(querySnapshot) {
 		//while(querySnapshot.empty) {
@@ -89,4 +99,4 @@ function viewReport() {
     });
 
     
-}
+//}
