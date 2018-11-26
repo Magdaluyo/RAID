@@ -1,3 +1,4 @@
+// Database Initialization
 var config = {
 	apiKey: "AIzaSyBthwSzrnSsJ_HIxqDlPkW9NU1_iA2jLCs",
 	authDomain: "raidscu.firebaseapp.com",
@@ -10,6 +11,7 @@ firebase.initializeApp(config);
 
 var db = firebase.firestore();
 
+// Function used by bugform.html to create a bug ticket
 function newTicket() {
 
 	var problemText = document.getElementById("problem").value;
@@ -37,6 +39,8 @@ function newTicket() {
 
 }
 
+
+// document query for end users
 const user_list = document.querySelector("#user_list");
 
 db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
@@ -62,6 +66,7 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
         console.log("Error getting documents: ", error);
     });
 
+// document query for managers
 const report_list = document.querySelector("#report_list");
 
 db.collection("tickets").orderBy("created")
@@ -88,6 +93,7 @@ db.collection("tickets").orderBy("created")
         console.log("Error getting documents: ", error);
     });
 
+// document query for testers
 const tester_list = document.querySelector("#tester_list");
 
 db.collection("tickets").orderBy("created")
