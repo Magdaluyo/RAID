@@ -93,8 +93,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-col m7">
  
       
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-       <i class="fa fa-bug"></i> <p>Bug Ticket Number 1</p>
+      <div class="w3-container w3-card w3-white w3-round w3-margin" id="tester_list"><br>
+<!--       <i class="fa fa-bug"></i> <p>Bug Ticket Number 1</p>
         <hr class="w3-clear">
 
  <p>Software: Camino </p>
@@ -157,7 +157,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       
       </div>
 
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -204,7 +204,7 @@ function openNav() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
-
+/*
 function openForm() {
 	document.getElementById("myForm").style.display = "block;
 }
@@ -212,7 +212,7 @@ function openForm() {
 function closeForm() {
 	document.getElementById("myForm").style.display = "none";
 }
-
+*/
 
 
 </script>
@@ -224,41 +224,9 @@ function closeForm() {
 
 
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBthwSzrnSsJ_HIxqDlPkW9NU1_iA2jLCs",
-    authDomain: "raidscu.firebaseapp.com",
-    databaseURL: "https://raidscu.firebaseio.com",
-    projectId: "raidscu",
-    storageBucket: "raidscu.appspot.com",
-    messagingSenderId: "494501454671"
-  };
-  firebase.initializeApp(config);
-</script>
-
-
-<!-- Firebase App is always required and must be first -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
-
-<!-- Add additional services that you want to use -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script> -->
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-functions.js"></script> -->
-
-<!-- Comment out (or don't include) services that you don't want to use -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-storage.js"></script> -->
-
-<script>
-  var config = {
-    // ...
-  };
-  firebase.initializeApp(config);
-</script>
-
-
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
+<script src="script.js"></script>
 
 </html> 
 

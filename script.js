@@ -89,7 +89,7 @@ db.collection("tickets").orderBy("created")
 
 const tester_list = document.querySelector("#tester_list");
 
-db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
+db.collection("tickets").orderBy("created")
     .get()
     .then(function(querySnapshot) {
         if(!querySnapshot.empty) {
