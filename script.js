@@ -43,15 +43,9 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
     .get()
     .then(function(querySnapshot) {
 		if(!querySnapshot.empty) {
-		//	user_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Current Bugs</h6><hr class='w3-clear'></div>";
-		//}
-		//else {
         	querySnapshot.forEach(function(doc) {
-        	    // doc.data() is never undefined for query doc snapshots
-        	    // console.log(doc.id, " => ", doc.data());
 				user_list.innerHTML += "<div class='w3-container w3-card w3-white w3-round w3-margin'>";
 				user_list.innerHTML += "<h6><i class='fa fa-bug'></i>   Bug Ticket " + doc.id + "</h6>";
-        		//user_list.innerHTML += "<hr class='w3-clear'>";
         		user_list.innerHTML += "<p>Software: " + doc.data().software + " </p>";
         		user_list.innerHTML += "<p>Problem: " + doc.data().problem + "</p>";
         		user_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
@@ -68,23 +62,15 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
         console.log("Error getting documents: ", error);
     });
 
-//function viewReport() {
-    
-    const report_list = document.querySelector("#report_list");
+const report_list = document.querySelector("report_list");
 
-    db.collection("tickets").orderBy("created")
+db.collection("tickets").orderBy("created")
     .get()
     .then(function(querySnapshot) {
-		//while(querySnapshot.empty) {
-		//	user_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Current Bugs</h6><hr class='w3-clear'></div>";
-		//}
-		//else {
+		if(!querySnapshot.empty) {
         	querySnapshot.forEach(function(doc) {
-        	    // doc.data() is never undefined for query doc snapshots
-        	    // console.log(doc.id, " => ", doc.data());
 				report_list.innerHTML += "<div class='w3-container w3-card w3-white w3-round w3-margin'>";
 				report_list.innerHTML += "<h6><i class='fa fa-bug'></i>   Bug Ticket " + doc.id + "</h6>";
-        		//user_list.innerHTML += "<hr class='w3-clear'>";
         		report_list.innerHTML += "<p>Software: " + doc.data().software + " </p>";
         		report_list.innerHTML += "<p>Problem: " + doc.data().problem + "</p>";
         		report_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
@@ -92,11 +78,36 @@ db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
         		report_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
 				report_list.innerHTML += "<hr class='w3-clear'>";
 	        });
-		//}
+		}
+		else {
+			report_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Current Bugs</h6><hr class='w3-clear'></div>";
+		}
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
 
-    
-//}
+const tester_list = document.querySelector("#tester_list");
+
+db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
+    .get()
+    .then(function(querySnapshot) {
+        if(!querySnapshot.empty) {
+            querySnapshot.forEach(function(doc) {
+                tester_list.innerHTML += "<div class='w3-container w3-card w3-white w3-round w3-margin'>";
+                tester_list.innerHTML += "<h6><i class='fa fa-bug'></i>   Bug Ticket " + doc.id + "</h6>";
+                tester_list.innerHTML += "<p>Software: " + doc.data().software + " </p>";
+                tester_list.innerHTML += "<p>Problem: " + doc.data().problem + "</p>";
+                tester_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
+                tester_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
+                tester_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
+                tester_list.innerHTML += "<hr class='w3-clear'>";
+            });
+        }
+        else {
+            tester_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Current Bugs</h6><hr class='w3-clear'></div>";
+        }
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    }); 
