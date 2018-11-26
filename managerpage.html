@@ -143,6 +143,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 		<option value = "readyDeployment"> Ready for Deployment </option>
 		<option value = "deployed"> Deployed </option>
         </select>
+          
+    <br>
+    <button class="w3-button w3-theme-d1 w3-margin-bottom" onclick="viewReport()">View Report</button>
+          
+    <div class='w3-container w3-card w3-white w3-round w3-margin' id="report_list">
+          </div>
 
 
 
@@ -222,7 +228,7 @@ function openNav() {
   };
   firebase.initializeApp(config);
 </script>
-
+<script src="script.js"></script>
 
 
 
