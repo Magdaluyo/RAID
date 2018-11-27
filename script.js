@@ -1,4 +1,7 @@
 // Database Initialization
+
+
+
 // This is for the current RAID.io page but these values can be changed to a new firestore backend
 var config = {
 	apiKey: "AIzaSyBthwSzrnSsJ_HIxqDlPkW9NU1_iA2jLCs",
@@ -150,21 +153,44 @@ db.collection("tickets").orderBy("created")
     }); 
 }
 
-   /* ******** ATTEMPTING LOGIN ******** */
-
+/* ******** ATTEMPTING LOGIN ******** */
+function clickLoginBtn() {
+    
     // Get elements
     const txtEmail = document.getElementById("userEmail");
     const txtPassword = document.getElementById("userPassword");
     const btnLogin = document.getElementById("btnLogin");
     
-    // Add login event
-    btnLogin.addEventListener('click', e => {
-        // Get email and password
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
-        const auth = firebase.auth();
-        // Sign in
-        const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
-    });
+    // Get email and password
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+    const auth = firebase.auth();
     
+    // Sign in
+    const promise = auth.signInWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+    console.log(promise);
+    
+    // Add a realtime listener
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if(firebaseUser) {
+            console.log('logged in');
+            console.log(firebaseUser);
+            if(firebaseUser.email == "tester@scu.edu"){
+                window.location.href="testerpage.html";
+            } else if(firebaseUser.email == "manager@scu.edu") {
+                window.location.href="managerpage.html";
+            } else if(firebaseUser.email == "developer@scu.edu") {
+                window.location.href="developer.html";
+        } 
+    });   
+}
+
+// setup signout feature
+function clickLogoutBtn() {
+    firebase.auth().signOut();
+    console.log('not logged in');
+}
+
+
+

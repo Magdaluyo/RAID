@@ -55,8 +55,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 	<br><input id="userEmail" type="email" placeholder="Email">
        <input id="userPassword" type="password" placeholder="Password">
-       <button id="btnLogin">
+       <button id="btnLogin" onclick="clickLoginBtn()">
           Log in
+       </button>
+        <button id="btnLogout" onclick="clickLogoutBtn()">
+          Log out
        </button>
 
 	</center>
@@ -65,13 +68,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <!-- End Middle Column -->
     
 </body>
-
 <!-- Connection to database -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 
 <!-- Firebase App is always required and must be first -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
     
 <script src="script.js"></script>
