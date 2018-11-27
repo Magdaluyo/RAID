@@ -196,6 +196,7 @@ function clickLoginBtn() {
 function clickLogoutBtn() {
     firebase.auth().signOut();
     console.log('not logged in');
+    window.location.href="index.html";
 };
 
 
