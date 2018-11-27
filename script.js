@@ -125,7 +125,7 @@ db.collection("tickets").orderBy("created")
                 tester_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
                 tester_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
                 tester_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
-/*
+
 				tester_list.innerHTML += "<label for='Priotities'>Priorities</label>";
 				tester_list.innerHTML += "<select id = 'Priorities' name='Priorities' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-sort-amount-desc'></i>";
                 tester_list.innerHTML += "<option value = 'choosepriority'> --Update Priority of Bug-- </option>";
@@ -140,7 +140,7 @@ db.collection("tickets").orderBy("created")
                 tester_list.innerHTML += "<option value = 'Ready for Deployment'> Ready for Deployment </option> </select>";
 
 				tester_list.innerHTML += "<button onclick=document.getElementById('id01').style.display='block' class='w3-button w3-theme-d1 w3-margin-bottom'>Update Notes</button>";
-*/
+
 				tester_list.innerHTML += "<hr class='w3-clear'>";
             });
         }
