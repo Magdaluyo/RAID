@@ -178,13 +178,16 @@ function clickLoginBtn() {
             console.log(firebaseUser);
             if(firebaseUser.email == "tester@scu.edu"){
                 window.location.href="testerpage.html";
-            } else if(firebaseUser.email == "manager@scu.edu") {
+            }
+            if(firebaseUser.email == "manager@scu.edu") {
                 window.location.href="managerpage.html";
-            } else if(firebaseUser.email == "developer@scu.edu") {
+            }
+            if(firebaseUser.email == "developer@scu.edu") {
                 window.location.href="developer.html";
-        } 
-    });   
-}
+            } 
+
+        }
+    }); 
 
 // setup signout feature
 function clickLogoutBtn() {
