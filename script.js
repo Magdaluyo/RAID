@@ -185,7 +185,9 @@ function clickLoginBtn() {
             if(firebaseUser.email == "developer@scu.edu") {
                 window.location.href="developer.html";
             } 
-
+            if(firebaseUser.email == "enduser@scu.edu") {
+                window.location.href="userpage.html"
+            }
         }
     }); 
 }
