@@ -58,9 +58,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
        <button id="btnLogin" onclick="clickLoginBtn()">
           Log in
        </button>
-        <button id="btnLogout" onclick="clickLogoutBtn()">
-          Log out
-       </button>
         
 
 	</center>
@@ -79,5 +76,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
     
 <script src="script.js"></script>
+    
+<script>
+    
+function logout(){
+    firebase.auth().signOut();
+    console.log('not logged in');
+}
+window.onload = logout;    
+</script>
     
 </html> 

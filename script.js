@@ -183,7 +183,7 @@ function clickLoginBtn() {
                 window.location.href="managerpage.html";
             }
             if(firebaseUser.email == "developer@scu.edu") {
-                window.location.href="developer.html";
+                window.location.href="developerpage.html";
             } 
             if(firebaseUser.email == "enduser@scu.edu") {
                 window.location.href="userpage.html";
@@ -192,12 +192,6 @@ function clickLoginBtn() {
     }); 
 }
 
-// setup signout feature
-function clickLogoutBtn() {
-    firebase.auth().signOut();
-    console.log('not logged in');
-    window.location.href="index.html";
-};
 
 
 
