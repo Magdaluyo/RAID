@@ -17,7 +17,7 @@ HTML File used as the main dashboard once a developer logs in. Allows developer 
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
-<body class="w3-theme-l5">
+<body class="w3-theme-l5" onload="developerList()">
 
 <!-- Top Bar on Page -->
 <div class="w3-top">
@@ -40,7 +40,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <!-- Profile -->
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center">Developer's Name</h4>
+         <h4 class="w3-center">developer@scu.edu</h4>
          <p class="w3-center"><img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> Developer </p>
@@ -76,8 +76,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-col m7">
  
       
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-       <i class="fa fa-bug"></i> <p>Bug Ticket Number 1</p>
+      <div class="w3-container w3-card w3-white w3-round w3-margin" id="dev_list"><br>
+<!--       <i class="fa fa-bug"></i> <p>Bug Ticket Number 1</p>
         <hr class="w3-clear">
 
 
@@ -85,7 +85,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                 <option value = "chooseStatus"> --Update Status of Bug-- </option>
                 <option value = "fixVerification"> Fix Verification </option>
         </select>
-         
+-->     
  
         
       </div>
@@ -102,30 +102,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 </body>
 
-<!-- Connection to Database -->
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBthwSzrnSsJ_HIxqDlPkW9NU1_iA2jLCs",
-    authDomain: "raidscu.firebaseapp.com",
-    databaseURL: "https://raidscu.firebaseio.com",
-    projectId: "raidscu",
-    storageBucket: "raidscu.appspot.com",
-    messagingSenderId: "494501454671"
-  };
-  firebase.initializeApp(config);
-</script>
-
-
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
-
-<script>
-  var config = {
-    // ...
-  };
-  firebase.initializeApp(config);
-</script>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
+<script src="script.js"></script>
 
 </html> 

@@ -15,8 +15,7 @@ firebase.initializeApp(config);
 
 var db = firebase.firestore();
 
-/** newTicket()
-  * Function used by bugform.html to create a bug ticket
+/** Function used by bugform.html to create a bug ticket
   * Takes information from user entered fields on page
   * Upon completion, the new ticket is properly added to the backend
   */
@@ -33,7 +32,7 @@ function newTicket() {
 		problem: problemText,
 		description: descriptionText,
 		typeoferror: errorText,
-		reporter: "dfh5lXUrkYMpGRfzDatc",
+		reporter: "mwcu0DvWPOeGGSbmK7iE",
 		hasreport: false,
 		created: timestamp,
 		status: "Pending Verification"
@@ -53,7 +52,7 @@ function newTicket() {
 function userList() {
 const user_list = document.querySelector("#user_list");
 
-db.collection("tickets").where("reporter", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
+db.collection("tickets").where("reporter", "==", "mwcu0DvWPOeGGSbmK7iE").orderBy("created")
     .get()
     .then(function(querySnapshot) {
 		if(!querySnapshot.empty) {
@@ -95,6 +94,12 @@ db.collection("tickets").orderBy("created")
         		report_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
         		report_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
         		report_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
+				if(doc.data().status == "Pending Verification") {
+					report_list.innerHTML += "<button onclick=doc.set({ assigned: 'dfh5lXUrkYMpGRfzDatc' }) class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Tester</button>";
+				}
+				if(doc.data().status == "Fix in Progress")
+                    report_list.innerHTML += "<button onclick=doc.set({ assigned: 'oMSkO3gYrbj27vqUVktD' class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Developer</button>";
+
 				report_list.innerHTML += "<hr class='w3-clear'>";
 	        });
 		}
@@ -112,7 +117,7 @@ db.collection("tickets").orderBy("created")
 function testerList() {
 const tester_list = document.querySelector("#tester_list");
 
-db.collection("tickets").orderBy("created")
+db.collection("tickets").where("assigned", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
     .get()
     .then(function(querySnapshot) {
         if(!querySnapshot.empty) {
@@ -125,22 +130,28 @@ db.collection("tickets").orderBy("created")
                 tester_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
                 tester_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
                 tester_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
+/*
+				//tester_list.innerHTML += "<label for='Priotities'>Priorities</label>";
+				tester_list.innerHTML += "<select id='Priorities' name='Priorities' class='w3-button w3-theme-d1 w3-margin-bottom'>";
+                tester_list.innerHTML += "<option value='choosepriority'> --Update Priority of Bug-- </option>";
+                tester_list.innerHTML += "<option value='Severe'> Severe </option>";
+                tester_list.innerHTML += "<option value='Moderate'> Moderate </option>";
+                tester_list.innerHTML += "<option value='Low'> Low </option></select>";
 
-				tester_list.innerHTML += "<label for='Priotities'>Priorities</label>";
-				tester_list.innerHTML += "<select id = 'Priorities' name='Priorities' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-sort-amount-desc'></i>";
-                tester_list.innerHTML += "<option value = 'choosepriority'> --Update Priority of Bug-- </option>";
-                tester_list.innerHTML += "<option value = 'Severe'> Severe </option>";
-                tester_list.innerHTML += "<option value = 'Moderate'> Moderate </option>";
-                tester_list.innerHTML += "<option value = 'Low'> Low </option> </select>";
+				var select = document.createElement("select");
+				select.id = "Priorities";
+				select.name="Priorities";
+				select.class="w3-button w3-theme-d1 w3-margin-bottom";
+				select.options.add( new Option("choosepriority","--Update Priority of Bug--", true, true) );
 
-				tester_list.innerHTML += "<label for='Status'>Status</label>";
-				tester_list.innerHTML += "<select id = 'Status' name='Status' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-asterisk'></i>";
-                tester_list.innerHTML += "<option value = 'chooseStatus'> --Update Status of Bug-- </option>";
-                tester_list.innerHTML += "<option value = 'Fix in Progress'> Fix in Progress </option>";
-                tester_list.innerHTML += "<option value = 'Ready for Deployment'> Ready for Deployment </option> </select>";
-
-				tester_list.innerHTML += "<button onclick=document.getElementById('id01').style.display='block' class='w3-button w3-theme-d1 w3-margin-bottom'>Update Notes</button>";
-
+				//tester_list.innerHTML += "<label for='Status'>Status</label>";
+				tester_list.innerHTML += "<select id='Status' name='Status' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-asterisk'></i>";
+                tester_list.innerHTML += "<option value='chooseStatus'> --Update Status of Bug-- </option>";
+                tester_list.innerHTML += "<option value='Fix in Progress'> Fix in Progress </option>";
+                tester_list.innerHTML += "<option value='Ready for Deployment'> Ready for Deployment </option> </select>";
+*/
+				tester_list.innerHTML += "<button onclick=document.getElementById('id01').style.display='block' class='w3-button w3-theme-d1 w3-margin-bottom'>Bug exists</button>";
+				tester_list.innerHTML += "<button onclick=document.getElementById('id01').style.display='block' class='w3-button w3-theme-d1 w3-margin-bottom'>Bug fixed</button>";
 				tester_list.innerHTML += "<hr class='w3-clear'>";
             });
         }
@@ -153,6 +164,40 @@ db.collection("tickets").orderBy("created")
     }); 
 }
 
+// document query for developers
+// populates dev_list section in corresponding html file
+function developerList() {
+const dev_list = document.querySelector("#dev_list");
+
+db.collection("tickets").where("assigned", "==", "OiIxPQtRS6pk5VNKrQhA").orderBy("created")
+    .get()
+    .then(function(querySnapshot) {
+        if(!querySnapshot.empty) {
+            querySnapshot.forEach(function(doc) {
+                dev_list.innerHTML += "<div class='w3-container w3-card w3-white w3-round w3-margin'>";
+                dev_list.innerHTML += "<h6><i class='fa fa-bug'></i>   Bug Ticket " + doc.id + "</h6>";
+                dev_list.innerHTML += "<p>Software: " + doc.data().software + " </p>";
+				dev_list.innerHTML += "<p>Reported: " + doc.data().created + "</p>";
+                dev_list.innerHTML += "<p>Problem: " + doc.data().problem + "</p>";
+                dev_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
+                dev_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
+                dev_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
+                dev_list.innerHTML += "<hr class='w3-clear'>";
+
+            });
+        }
+        else {
+            user_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Bugs Assigned </h6><hr class='w3-clear'></div>";
+        }
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+   /* ******** ATTEMPTING LOGIN ******** 
+
+=======
 /* ******** ATTEMPTING LOGIN ******** */
 function clickLoginBtn() {
     
@@ -160,6 +205,17 @@ function clickLoginBtn() {
     const txtEmail = document.getElementById("userEmail");
     const txtPassword = document.getElementById("userPassword");
     const btnLogin = document.getElementById("btnLogin");
+    
+    // Add login event
+    btnLogin.addEventListener('click', e => {
+        // Get email and password
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+        // Sign in
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
+    });
     
     // Get email and password
     const email = txtEmail.value;
