@@ -188,12 +188,13 @@ function clickLoginBtn() {
 
         }
     }); 
+}
 
 // setup signout feature
 function clickLogoutBtn() {
     firebase.auth().signOut();
     console.log('not logged in');
-}
+};
 
 
 
