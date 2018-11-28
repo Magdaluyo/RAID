@@ -66,6 +66,8 @@ function newTicket() {
 		console.error("Error adding document: ", error);
 	});
 
+
+	alert("Bug Report Submitted! Return to Dashboard to view.");
 }
 
 /**
