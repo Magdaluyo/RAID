@@ -18,13 +18,14 @@ var db = firebase.firestore();
 /**
   * End User Page Functions
   */
-function bugResubmit(id, desc) {
+function bugResubmit(id, old) {
 	var docRef = db.collection("tickets").doc(id);
-	var currentDesc;
-	docRef.get().then(function(doc) { currentDesc = doc.data().description; });
+	var newDesc = document.getElementById(id).value;
+	//console.log("old: ", old);
+	//console.log("newDesc: ", newDesc);
 	var timestamp = new Date();
 	updateData = {
-		description: currentDesc + "[Updated " + timestamp + "] " + desc,
+		description: old + " [Updated: " + timestamp + " ] " + newDesc,
 		active: true,
 		status: "Pending Verification"
 	}
@@ -83,7 +84,8 @@ function assignTester(id) {
 
 function assignDev(id) {
 	db.collection("tickets").doc(id).set({
-		assigned: "OiIxPQtRS6pk5VNKrQhA"
+		assigned: "OiIxPQtRS6pk5VNKrQhA",
+		dev: "OiIxPQtRS6pk5VNKrQhA"
 	}, { merge: true })
 	.then(function() {
         window.location.href="managerpage.html";
@@ -137,6 +139,16 @@ function fixConfirm(id) {
 	});
 }
 
+function fixDeny(id) {
+    db.collection("tickets").doc(id).set({
+        assigned: "OiIxPQtRS6pk5VNKrQhA",
+        status: "Fix in Progress"
+    }, { merge: true })
+    .then(function() {
+        window.location.href="testerpage.html";
+    });
+}
+
 /**
   * Developer Page Functions
   */
@@ -171,8 +183,8 @@ db.collection("tickets").where("reporter", "==", "mwcu0DvWPOeGGSbmK7iE").orderBy
 				if(doc.data().status == "Needs more info") {
 					user_list.innerHTML += "<style>textarea { width: 700px; height: 15em; }</style>";
 					user_list.innerHTML += "<label for='description'>Description:</label><br>";
-					user_list.innerHTML += "<textarea id='description' name='description'></textarea><br>";
-					user_list.innerHTML += "<button onclick=\"bugResubmit('" + doc.id + "', 'document.getElementById(description).value')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Update</button>";
+					user_list.innerHTML += "<textarea id='" + doc.id + "' name='description'></textarea><br>";
+					user_list.innerHTML += "<button onclick=\"bugResubmit('" + doc.id + "', '" + doc.data().description + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Update</button>";
 				}
 				user_list.innerHTML += "<hr class='w3-clear'>";
 	        });
@@ -268,8 +280,10 @@ db.collection("tickets").where("assigned", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
                     tester_list.innerHTML += "<button onclick=\"bugConfirm('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Bug Exists</button>";
 					tester_list.innerHTML += "<button onclick=\"bugDeny('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Bug not Found</button>";
 				}
-				if(doc.data().status == "Fix Verification")
+				if(doc.data().status == "Fix Verification") {
                     tester_list.innerHTML += "<button onclick=\"fixConfirm('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Bug Fixed</button>";
+					tester_list.innerHTML += "<button onclick=\"fixDeny('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Not Fixed</button>";
+				}
 				tester_list.innerHTML += "<hr class='w3-clear'>";
             });
         }
@@ -306,7 +320,7 @@ db.collection("tickets").where("assigned", "==", "OiIxPQtRS6pk5VNKrQhA").orderBy
             });
         }
         else {
-            user_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Bugs Assigned </h6><hr class='w3-clear'></div>";
+            dev_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Bugs Assigned </h6><hr class='w3-clear'></div>";
         }
     })
     .catch(function(error) {
