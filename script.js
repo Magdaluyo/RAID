@@ -35,7 +35,9 @@ function newTicket() {
 		reporter: "mwcu0DvWPOeGGSbmK7iE",
 		hasreport: false,
 		created: timestamp,
-		status: "Pending Verification"
+		status: "Pending Verification",
+		assigned: "",
+		active: true
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -46,6 +48,21 @@ function newTicket() {
 
 }
 
+function assignTester(id) {
+	db.collection("tickets").doc(id).set({assigned: "dfh5lXUrkYMpGRfzDatc"}, { merge: true });
+}
+
+function assignDev(id) {
+	db.collection("tickets").doc(id).set({assigned: "OiIxPQtRS6pk5VNKrQhA"}, { merge: true });
+}
+
+function deployFix(id) {
+	db.collection("tickets").doc(id).set({
+		active: false,
+		assigned: "",
+		status: "Deployed"
+	}, { merge: true });
+}
 
 // Document query for end users
 // populates user_list section in corresponding html file
@@ -81,7 +98,7 @@ db.collection("tickets").where("reporter", "==", "mwcu0DvWPOeGGSbmK7iE").orderBy
 function managerList() {
 const report_list = document.querySelector("#report_list");
 
-db.collection("tickets").orderBy("created")
+db.collection("tickets").where("active", "==", true).orderBy("created")
     .get()
     .then(function(querySnapshot) {
 		if(!querySnapshot.empty) {
@@ -94,11 +111,15 @@ db.collection("tickets").orderBy("created")
         		report_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
         		report_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
         		report_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
-				if(doc.data().status == "Pending Verification") {
-					report_list.innerHTML += "<button onclick=doc.set({ assigned: 'dfh5lXUrkYMpGRfzDatc' }) class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Tester</button>";
-				}
+				report_list.innerHTML += "<p>Assigned to: " + doc.data().assigned + "</p></div>";
+				if(doc.data().status == "Pending Verification") 
+					report_list.innerHTML += "<button onclick=\"assignTester('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Tester</button>";
 				if(doc.data().status == "Fix in Progress")
-                    report_list.innerHTML += "<button onclick=doc.set({ assigned: 'oMSkO3gYrbj27vqUVktD' class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Developer</button>";
+                    report_list.innerHTML += "<button onclick='assignDev('" + doc.id + "')' class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Developer</button>";
+				if(doc.data().status == "Fix Verification")
+                    report_list.innerHTML += "<button onclick='assignTester('" + doc.id + "')' class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Tester</button>";
+				if(doc.data().status == "Ready to Deploy")
+                    report_list.innerHTML += "<button onclick='deployFix('" + doc.id + "')' class='w3-button w3-theme-d1 w3-margin-bottom'>Deploy Fix</button>";
 
 				report_list.innerHTML += "<hr class='w3-clear'>";
 	        });
@@ -150,7 +171,8 @@ db.collection("tickets").where("assigned", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
                 tester_list.innerHTML += "<option value='Fix in Progress'> Fix in Progress </option>";
                 tester_list.innerHTML += "<option value='Ready for Deployment'> Ready for Deployment </option> </select>";
 */
-				tester_list.innerHTML += "<button onclick=document.getElementById('id01').style.display='block' class='w3-button w3-theme-d1 w3-margin-bottom'>Bug exists</button>";
+				if(doc.data().status == "Pending Verification")
+                    tester_list.innerHTML += "<button onclick=\"assignTester('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Bug exists</button>";
 				tester_list.innerHTML += "<button onclick=document.getElementById('id01').style.display='block' class='w3-button w3-theme-d1 w3-margin-bottom'>Bug fixed</button>";
 				tester_list.innerHTML += "<hr class='w3-clear'>";
             });
