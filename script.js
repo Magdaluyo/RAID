@@ -170,7 +170,7 @@ function bugFixed(id) {
 function userList() {
 const user_list = document.querySelector("#user_list");
 
-db.collection("tickets").where("reporter", "==", "mwcu0DvWPOeGGSbmK7iE").orderBy("created")
+db.collection("tickets").where("reporter", "==", "mwcu0DvWPOeGGSbmK7iE").orderBy("created", "desc")
     .get()
     .then(function(querySnapshot) {
 		if(!querySnapshot.empty) {
@@ -205,7 +205,7 @@ db.collection("tickets").where("reporter", "==", "mwcu0DvWPOeGGSbmK7iE").orderBy
 function managerList() {
 const report_list = document.querySelector("#report_list");
 
-db.collection("tickets").where("active", "==", true).orderBy("created")
+db.collection("tickets").where("active", "==", true).orderBy("created", "desc")
     .get()
     .then(function(querySnapshot) {
 		if(!querySnapshot.empty) {
@@ -245,7 +245,7 @@ db.collection("tickets").where("active", "==", true).orderBy("created")
 function testerList() {
 const tester_list = document.querySelector("#tester_list");
 
-db.collection("tickets").where("assigned", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created")
+db.collection("tickets").where("assigned", "==", "dfh5lXUrkYMpGRfzDatc").orderBy("created", "desc")
     .get()
     .then(function(querySnapshot) {
         if(!querySnapshot.empty) {
@@ -303,7 +303,7 @@ db.collection("tickets").where("assigned", "==", "dfh5lXUrkYMpGRfzDatc").orderBy
 function developerList() {
 const dev_list = document.querySelector("#dev_list");
 
-db.collection("tickets").where("assigned", "==", "OiIxPQtRS6pk5VNKrQhA").orderBy("created")
+db.collection("tickets").where("assigned", "==", "OiIxPQtRS6pk5VNKrQhA").orderBy("created", "desc")
     .get()
     .then(function(querySnapshot) {
         if(!querySnapshot.empty) {
