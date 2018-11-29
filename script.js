@@ -330,9 +330,6 @@ db.collection("tickets").where("assigned", "==", "OiIxPQtRS6pk5VNKrQhA").orderBy
     });
 }
 
-   /* ******** ATTEMPTING LOGIN ******** 
-
-=======
 /* ******** ATTEMPTING LOGIN ******** */
 function clickLoginBtn() {
     
@@ -350,6 +347,7 @@ function clickLoginBtn() {
         // Sign in
         const promise = auth.signInWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
+        console.log(promise);
     });
     
     // Get email and password
