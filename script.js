@@ -379,9 +379,6 @@ function clickLoginBtn() {
             }
         }
 
-	else {
-		alert("Invalid email or password");
-		}
     }); 
 }
 
