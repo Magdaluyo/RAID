@@ -384,5 +384,43 @@ function clickLoginBtn() {
 }
 
 
+function history() {
+const history_list = document.querySelector("#history_list");
+
+db.collection("tickets").where("active", "==", false).orderBy("created", "desc")
+    .get()
+    .then(function(querySnapshot) {
+                if(!querySnapshot.empty) {
+                querySnapshot.forEach(function(doc) {
+                                history_list.innerHTML += "<div class='w3-container w3-card w3-white w3-round w3-margin'>";
+                                history_list.innerHTML += "<h6><i class='fa fa-bug'></i>   Bug Ticket " + doc.id + "</h6>";
+	                        history_list.innerHTML += "<p>Software: " + doc.data().software + " </p>";
+                                history_list.innerHTML += "<p>Reported: " + doc.data().created + "</p>";
+        	                history_list.innerHTML += "<p>Problem: " + doc.data().problem + "</p>";
+                	        history_list.innerHTML += "<p>Description: " + doc.data().description + "</p>";
+                        	history_list.innerHTML += "<p>Type of Error: " + doc.data().typeoferror + "</p>";
+	                        history_list.innerHTML += "<p>Status of Bug: " + doc.data().status + "</p></div>";
+                                history_list.innerHTML += "<p>Assigned to: " + doc.data().assigned + "</p></div>";
+                                if(doc.data().status == "Pending Verification")
+                                        history_list.innerHTML += "<button onclick=\"assignTester('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Tester</button>";
+                                if(doc.data().status == "Fix in Progress")
+                    history_list.innerHTML += "<button onclick=\"assignDev('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Developer</button>";
+                                if(doc.data().status == "Fix Verification")
+                    history_list.innerHTML += "<button onclick=\"assignTester('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Assign Tester</button>";
+                                if(doc.data().status == "Ready to Deploy")
+                    history_list.innerHTML += "<button onclick=\"deployFix('" + doc.id + "')\" class='w3-button w3-theme-d1 w3-margin-bottom'>Deploy Fix</button>";
+
+                                history_list.innerHTML += "<hr class='w3-clear'>";
+                });
+                }
+                else {
+                        history_list.innerHTML = "<div class='w3-container w3-card w3-white w3-round w3-margin'><br><h6><i class='fa fa-bug'></i> No Archived Bugs </h6><hr class='w3-clear'></div>";
+                }
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+}
+
 
 
