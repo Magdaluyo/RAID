@@ -5,6 +5,7 @@ HTML file is the home page for the RAID.io system. Serves as login page.
 <!DOCTYPE html>
 
 <html>
+
 <title>RAID.io</title>
 
 <!-- CSS Sources for User Interface -->
@@ -34,11 +35,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 	<center>
 <!-- Begin Middle Column -->
     <div class="w3-col m11">
-
-	<br>
         <br>
         <br>
         <br>
+        <br> 
         <br>
         <h3 class="w3-center">Log in</h3>
         <input id="userEmail" type="email" placeholder="Email">
@@ -46,7 +46,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
        <button id="btnLogin" onclick="clickLoginBtn()">
           Log in
        </button>
-        
 
 	</center>
       
@@ -71,7 +70,15 @@ function logout(){
     firebase.auth().signOut();
     console.log('not logged in');
 }
-window.onload = logout;    
+window.onload = logout;
+
+document.getElementById("userPassword")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("btnLogin").click();
+    }
+});
 </script>
     
 </html> 
