@@ -61,14 +61,14 @@ function newTicket() {
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
-		window.location.href="userpage.html";
+		window.location.href="index.html";
 	})
 	.catch(function(error) {
 		console.error("Error adding document: ", error);
 	});
 
 
-	alert("Bug Report Submitted! Return to Dashboard to view.");
+	alert("Bug Report Submitted!");
 }
 
 /**
@@ -380,6 +380,10 @@ function clickLoginBtn() {
                 window.location.href="userpage.html";
             }
         }
+
+	else {
+		alert("Invalid email or password");
+		}
     }); 
 }
 
